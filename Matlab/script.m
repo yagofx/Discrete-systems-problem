@@ -32,7 +32,7 @@ G = zeros(n,1);
 
 % G in N/m
 for i=1:n
-    G(i) = gamma*(l/n)/3*(r_nodes(i)^2+r_nodes(i+1)^2+r_nodes(i)*r_nodes(i+1));
+    G(i) = gamma*pi/3*(r_nodes(i)^2+r_nodes(i+1)^2+r_nodes(i)*r_nodes(i+1));
 end
 
 %fg in N
@@ -65,9 +65,9 @@ mini_f = zeros(n,1);
 
 for i=1:n
     if i<n
-    mini_f(i)=-fg(i)-fg(i+1);
+    mini_f(i)=fg(i)+fg(i+1);
     else
-    mini_f(i)= -fg(i)-p;
+    mini_f(i)= fg(i)+p;
     end
 end
 
@@ -107,6 +107,8 @@ for i=1:n
 end
 
 %Verification
+
+R1 = fg(1)+k_element(1)*u(2);
 
 if sum(r_f) < 1e-6
     disp('Verification OK!')
