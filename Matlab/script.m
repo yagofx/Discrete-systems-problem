@@ -10,7 +10,7 @@ l = 3;          % m
 p = 20e3;       % N
 
 n_inicial = 3;
-n_final = 25;
+n_final = 10;
 max_u =1:n_final-n_inicial+1;
 
 for i=n_inicial:n_final
@@ -125,6 +125,20 @@ x=n_inicial:n_final;
 y=max_u;
 plot(x,y,'-o');
 
-title('Problema sistemas discretos')
+title('Diagrama de convergencia')
 xlabel('N (number of beams)')
 ylabel('u, (max displacement)')
+
+figure
+plot(y_nodes,u,'-o');
+title('Desplazamientos nodales')
+xlabel('y_nodes (m)')
+ylabel('u, displacement (m)')
+
+
+
+
+
+
+
+
